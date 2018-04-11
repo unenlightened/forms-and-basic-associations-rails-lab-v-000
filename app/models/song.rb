@@ -18,4 +18,12 @@ class Song < ActiveRecord::Base
   def artist_name
     self.artist.name
   end
+
+  def note_contents=(contents)
+    self.artist = Artist.find_or_create_by(name: name)
+  end
+
+  def note_content
+    self.artist.name
+  end
 end
